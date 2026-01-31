@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minta Maaf 😢</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+        text-align: center;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        width: 350px;
+      }
+
+      img {
+        width: 200px;
+        border-radius: 15px;
+      }
+
+      h2 {
+        margin-top: 15px;
+        color: #333;
+      }
+
+      .buttons {
+        margin-top: 20px;
+        position: relative;
+        height: 80px;
+      }
+
+      button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      #yesBtn {
+        background: #4caf50;
+        color: white;
+      }
+
+      #noBtn {
+        background: #f44336;
+        color: white;
+      }
+
+      #message {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #444;
+      }
+
+      /* Semua GIF bawah disembunyikan dulu */
+      #gifYes,
+      #gifNo {
+        display: none;
+        margin-top: 15px;
+        /* display: block; */
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <img id="gifAtas" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmdoaGs3YnBtM3lwbnJqbWMyazdqOHRldmsya3drdHlpZGkzdG1hdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XYEEvoX0Ub69ZgN9ai/giphy.gif" alt="gif lucu" />
+
+      <h2>Maafin aku ya 😭</h2>
+      <p>Aku beneran minta maaf...</p>
+
+      <!-- Tombol -->
+      <div class="buttons">
+        <button id="yesBtn">Ya 😊</button>
+        <button id="noBtn">Gak 😡</button>
+      </div>
+
+      <div id="message"></div>
+
+      <!-- GIF kalau Ya -->
+      <img id="gifYes" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hrNWh2ZzM1cXJ5dWYwNDJjMXk4Y3VtaThwZnJ4eWJmNnRtZHZqeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kxUc3bdlKbe8v2CQNc/giphy.gif" alt="gif bahagia" />
+
+      <!-- GIF kalau Gak -->
+      <img id="gifNo" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW1pMTltZHMxcmVvNTZjNDc4aGczYXFybmF2MzdpOWN2a3h2cGE1ZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ar71Hyi0ZKejXzMoNs/giphy.gif" alt="gif sedih" />
+    </div>
+
+    <!-- AUDIO HAPPY
+      <audio id="happyAudio">
+        <source
+          src="https://www.soundjay.com/human/sounds/applause-8.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+
+      AUDIO SAD -->
+    <!-- <audio id="sadAudio">
+        <source
+          src="https://www.soundjay.com/misc/sounds/fail-buzzer-01.mp3"
+          type="audio/mpeg"
+        />
+      </audio> -->
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+      const yesBtn = document.getElementById("yesBtn");
+
+      const message = document.getElementById("message");
+      const gifAtas = document.getElementById("gifAtas");
+
+      const gifYes = document.getElementById("gifYes");
+      const gifNo = document.getElementById("gifNo");
+
+      //   const happyAudio = document.getElementById("happyAudio");
+      //   const sadAudio = document.getElementById("sadAudio");
+
+      //   // Tombol Gak kabur
+      //   noBtn.addEventListener("mouseover", () => {
+      //     const x = Math.random() * 250;
+      //     const y = Math.random() * 50;
+
+      //     noBtn.style.left = x + "px";
+      //     noBtn.style.top = y + "px";
+      //   });
+
+      // Klik Ya
+      yesBtn.addEventListener("click", () => {
+        message.innerHTML = "Yeay 😍 Makasih udah maafin aku!";
+
+        gifYes.style.display = "block";
+        gifNo.style.display = "none";
+
+        gifAtas.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3BwZzFxbTI5cXV5MTQwZ2pjNXg4Y2Vkc2xicG1ncTQ0czRhYnh0bSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/11sBLVxNs7v6WA/giphy.gif";
+
+        // Stop audio sad kalau jalan
+        // sadAudio.pause();
+        // sadAudio.currentTime = 0;
+
+        // Play audio happy
+        // happyAudio.play();
+      });
+
+      // Klik Gak
+      noBtn.addEventListener("click", () => {
+        message.innerHTML = "Yah 😭 jangan gitu dong...";
+
+        gifNo.style.display = "block";
+        gifYes.style.display = "none";
+
+        gifAtas.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3FqM2U0bXJ0Y3Z2NWJ2aDg5dG1kOGV0N2ZqZ2J5NHZ4cHh2YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OPU6wzx8JrHna/giphy.gif";
+
+        // Stop audio happy kalau jalan
+        // happyAudio.pause();
+        // happyAudio.currentTime = 0;
+
+        // Play audio sad
+        // sadAudio.play();
+      });
+    </script>
+  </body>
+</html>

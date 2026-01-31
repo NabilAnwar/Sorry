@@ -62,6 +62,7 @@
 
       #message {
         margin-top: 20px;
+        min-height: 30px;
         font-size: 18px;
         font-weight: bold;
         color: #444;
@@ -101,22 +102,6 @@
       <img id="gifNo" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW1pMTltZHMxcmVvNTZjNDc4aGczYXFybmF2MzdpOWN2a3h2cGE1ZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ar71Hyi0ZKejXzMoNs/giphy.gif" alt="gif sedih" />
     </div>
 
-    <!-- AUDIO HAPPY
-      <audio id="happyAudio">
-        <source
-          src="https://www.soundjay.com/human/sounds/applause-8.mp3"
-          type="audio/mpeg"
-        />
-      </audio>
-
-      AUDIO SAD -->
-    <!-- <audio id="sadAudio">
-        <source
-          src="https://www.soundjay.com/misc/sounds/fail-buzzer-01.mp3"
-          type="audio/mpeg"
-        />
-      </audio> -->
-
     <script>
       const noBtn = document.getElementById("noBtn");
       const yesBtn = document.getElementById("yesBtn");
@@ -127,17 +112,22 @@
       const gifYes = document.getElementById("gifYes");
       const gifNo = document.getElementById("gifNo");
 
-      //   const happyAudio = document.getElementById("happyAudio");
-      //   const sadAudio = document.getElementById("sadAudio");
+      // Tombol Gak kabur saat DIKLIK
+      noBtn.addEventListener("click", () => {
+        const x = Math.random() * 250;
+        const y = Math.random() * 50;
 
-      //   // Tombol Gak kabur
-      //   noBtn.addEventListener("mouseover", () => {
-      //     const x = Math.random() * 250;
-      //     const y = Math.random() * 50;
+        noBtn.style.position = "absolute"; // pastikan bisa bergerak
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
 
-      //     noBtn.style.left = x + "px";
-      //     noBtn.style.top = y + "px";
-      //   });
+        // Hilangkan gif bahagia kalau sudah muncul
+        gifYes.style.display = "none";
+        gifNo.style.display = "none";
+
+        // Balikin gif atas ke awal
+        gifAtas.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmdoaGs3YnBtM3lwbnJqbWMyazdqOHRldmsya3drdHlpZGkzdG1hdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XYEEvoX0Ub69ZgN9ai/giphy.gif";
+      });
 
       // Klik Ya
       yesBtn.addEventListener("click", () => {
@@ -154,23 +144,6 @@
 
         // Play audio happy
         // happyAudio.play();
-      });
-
-      // Klik Gak
-      noBtn.addEventListener("click", () => {
-        message.innerHTML = "Yah 😭 jangan gitu dong...";
-
-        gifNo.style.display = "block";
-        gifYes.style.display = "none";
-
-        gifAtas.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3FqM2U0bXJ0Y3Z2NWJ2aDg5dG1kOGV0N2ZqZ2J5NHZ4cHh2YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OPU6wzx8JrHna/giphy.gif";
-
-        // Stop audio happy kalau jalan
-        // happyAudio.pause();
-        // happyAudio.currentTime = 0;
-
-        // Play audio sad
-        // sadAudio.play();
       });
     </script>
   </body>
